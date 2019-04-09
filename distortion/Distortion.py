@@ -5,7 +5,7 @@ class Distortion(Layer):
     
     def __init__(self, output_dim, **kwargs):
         self.dim = output_dim
-        super(MyLayer, self).__init__(**kwargs)
+        super(Distortion, self).__init__(**kwargs)
         
     def initializer(self, shape, dtype=None):
         return (K.random_uniform(shape, dtype=dtype)*2-1)*0.2
@@ -20,7 +20,7 @@ class Distortion(Layer):
                                       shape=(self.dim, self.dim),
                                       initializer=self.initializer,
                                       trainable=True)
-        super(MyLayer, self).build(input_shape)  # Be sure to call this at the end
+        super(Distortion, self).build(input_shape)  # Be sure to call this at the end
 
     def call(self, x):
         #
